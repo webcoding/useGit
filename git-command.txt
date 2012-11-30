@@ -111,6 +111,29 @@ git branch testing
 git checkout testing
 git checkout master
 
+git checkout -b iss53
+相当于执行下面这两条命令：
+git branch iss53
+git checkout iss53
+
+
+
+新建紧急修补分支（不过在此之前，留心你的暂存区或者工作目录里，那些还没有提交的修改，它会和你即将检出的分支产生冲突从而阻止 Git 为你切换分支。切换分支的时候最好保持一个清洁的工作区域。稍后会介绍几个绕过这种问题的办法（分别叫做 stashing 和 commit amending）。目前已经提交了所有的修改，所以接下来可以正常转换到master 分支：）
+
+git checkout -b 'hotfix'
+修改后合并（先返回主干再marge）
+git checkout master
+git merge
+
+hotfix 完成历史使命，就可以删掉了
+git branch -d hotfix
+
+
+
+
+
+
+
 
 
 
