@@ -1,0 +1,90 @@
+
+$ ssh -v  git@github.com
+
+
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+
+
+设置默认使用的文本编辑器
+$ git config --global core.editor emacs
+
+差异分析工具，例如：
+git config --global merge.tool vimdiff
+
+
+检查已有的配置信息
+git config --list
+
+$ git help 
+$ git  --help
+
+$ git help config
+
+
+
+
+
+
+
+
+初始化新仓库
+git init
+
+
+$ git clone git://github.com/schacon/grit.git
+$ git clone git://github.com/schacon/grit.git mygrit  #项目重命名
+
+查看文件当前处于什么状态，
+git status
+
+git add 开始跟踪一个新文件
+暂存这次更新，需要运行git add 命令（这是个多功能命令，根据目标文件的状态不同，此命令的效果也不同：可以用它开始跟踪新文件，或者把已跟踪的文件放到暂存区，还能用于合并时把有冲突的文件标记为已解决状态等）
+git diff查看尚未暂存的文件更新了哪些部分
+git diff --cached 命令 已经暂存起来的文件和上次提交时的快照之间的差异
+git diff --staged，Git 1.6.1 及更高版本还允许使用这个，效果是相同的，但更好记些
+
+=====================
+.gitignore 文件
+
+# 此为注释 – 将被 Git 忽略
+*.[oa]    # 忽略所有以 .o 或 .a 结尾的文件
+*~        # 忽略所有以波浪符（~）结尾的文件
+*.a       # 忽略所有 .a 结尾的文件
+!lib.a    # 但 lib.a 除外
+/TODO     # 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO
+build/    # 忽略 build/ 目录下的所有文件
+doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
+
+提交更新
+
+提交命令(暂存起来git add的)
+git commit
+
+可以用 -m 参数后跟提交说明的方式，在一行命令中提交更新：
+git commit -m "edit intro"  #这样提交前就不用git add了
+
+
+跳过使用暂存区域
+-a 选项，Git 就会自动把所有已经跟踪过的文件暂存起来一并提交，从而跳过 git add 步骤：
+
+git commit -a -m "edit intro"
+
+
+
+
+移除文件
+
+
+
+移动文件
+
+
+
+
+
+
+$ git push
+
+$ git pull
+
