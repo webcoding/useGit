@@ -70,14 +70,45 @@ git commit -m "edit intro"  #这样提交前就不用git add了
 
 git commit -a -m "edit intro"
 
+推送数据到远程仓库
+git push origin master
+
+git remote show origin
+
+git remote rename pb paul  重命名pb为paul
+git remote rm paul 移除远端仓库
 
 
 
-移除文件
 
 
 
-移动文件
+
+
+列显已有的标签
+git tag
+git tag -l 'v1.4.2.*'
+
+新建标签
+git tag -a v1.4 -m 'my version 1.4'
+git show v1.4
+
+签署标签
+git tag -s v1.5 -m 'my signed 1.5 tag'
+再运行 git show 会看到对应的 GPG 签名也附在其内：
+git show v1.5
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
