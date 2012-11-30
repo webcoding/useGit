@@ -103,7 +103,7 @@ git show v1.5
 
 
 
-<<<<<<< HEAD
+
 
 新建分支
 git branch testing
@@ -129,8 +129,7 @@ git merge
 hotfix 完成历史使命，就可以删掉了
 git branch -d hotfix
 
-=======
->>>>>>> branch-testing
+
 
 
 
