@@ -1,4 +1,49 @@
 
+Study from:http://www.tcreator.info/webSchool/tools/git-3-branch.html
+
+新建分支
+git branch testing
+
+切换分支
+git checkout testing
+git checkout master
+
+git checkout -b iss53
+相当于执行下面这两条命令：
+git branch iss53
+git checkout iss53
+
+新建紧急修补分支（不过在此之前，留心你的暂存区或者工作目录里，那些还没有提交的修改，它会和你即将检出的分支产生冲突从而阻止 Git 为你切换分支。切换分支的时候最好保持一个清洁的工作区域。稍后会介绍几个绕过这种问题的办法（分别叫做 stashing 和 commit amending）。目前已经提交了所有的修改，所以接下来可以正常转换到master 分支：）
+
+git checkout -b 'hotfix'
+修改后合并（先返回主干再marge）
+git checkout master
+git merge hotfix
+hotfix 完成历史使命，就可以删掉了
+git branch -d hotfix
+如果顺着一个分支走下去可以到达另一个分支的话，那么 Git 在合并两者时，只会简单地把指针右移，因为这种单线的历史分支不存在任何需要解决的分歧，所以这种合并过程可以称为快进（Fast forward）。
+
+
+$ git merge iss53
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+产生了冲突，可以git status(逻辑上说，这种问题只能由人来裁决。)
+
+在解决了所有文件里的所有冲突后，运行 git add 将把它们标记为已解决状态（译注：实际上就是来一次快照保存到暂存区域。）。因为一旦暂存，就表示冲突已经解决。如
+
+如果你想用一个有图形界面的工具来解决这些问题，不妨运行git mergetool，它会调用一个可视化的合并工具并引导你解决所有冲突：
+git mergetool
+
+再运行一次 git status 来确认所有冲突都已解决：
+如果觉得满意了，并且确认所有冲突都已解决，也就是进入了暂存区，就可以用 git commit 来完成这次合并提交。
+
+
+
+
+
+
+
 分支的管理
 
 git branch 命令不仅仅能创建和删除分支，如果不加任何参数，它会给出当前所有分支的清单：
@@ -14,3 +59,77 @@ git branch --merged
 一般来说，列表中没有 * 的分支通常都可以用 git branch -d 来删掉。原因很简单，既然已经把它们所包含的工作整合到了其他分支，删掉也不会损失什么。
 
 另外可以用 git branch --no-merged 查看尚未合并的工作：
+
+推送本地分支
+如 serverfix 的分支需要和他人一起开发，可以运行 git push (远程仓库名) (分支名)推送：
+git push origin serverfix
+也可以运行git push origin serverfix:serferfix
+
+若想把远程分支叫作awesomebranch，可以用 git push origin serverfix:awesomebranch 来推送数据。
+
+如果再想要一份自己的 serverfix 来开发，可以在远程分支的基础上分化出一个新的分支来：
+git checkout -b serverfix origin/serverfix
+
+
+
+
+
+
+
+跟踪远程分支
+
+从远程分支 checkout 出来的本地分支，称为_跟踪分支(tracking branch)_。
+
+
+
+你可以随心所欲地设定为其它跟踪分支，git checkout -b [分支名] [远程名]/[分支名]
+git checkout --track origin/serverfix
+
+git checkout -b sf origin/serverfix 更名为sf
+
+
+
+
+删除远程分支
+git push origin :serverfix
+咚！服务器上的分支没了。你最好特别留心这一页，因为你一定会用到那个命令，而且你很可能会忘掉它的语法。有种方便记忆这条命令的方法：记住我们不久前见过的 git push [远程名] [本地分支]:[远程分支] 语法，如果省略 [本地分支]，那就等于是在说“在这里提取空白然后把它变成[远程分支]”。
+
+
+
+
+
+分支的衍合
+rebase 命令，就可以把在一个分支里提交的改变移到另一个分支里重放一遍。
+
+git checkout experiment
+git rebase master
+把当前分支衍合，衍合能产生一个更为整洁的提交历史。如果视察一个衍合过的分支的历史记录，看起来会更 清楚：仿佛所有修改都是在一根线上先后进行的，尽管实际上它们原本是同时并行发生的。
+（译注：实际上是把解决分支补丁同最新主干代码之间冲突的责任，化转为由提交补丁的人来解决。）
+
+把基于 server 分支而非 master 分支的改变，跳过 server 直接放到master 分支中重演一遍
+git rebase --onto master server client
+
+即：取出 client 分支，找出 client 分支和 server 分支的共同祖先之后的变化，然后把它们在master 上重演一遍
+
+之后就可以快进master分支了
+git checkout master
+git merge client
+
+
+git rebase master server
+
+
+
+衍合的风险
+
+奇妙的衍合也并非完美无缺，要用它得遵守一条准则：
+一旦分支中的提交对象发布到公共仓库，就千万不要对该分支进行衍合操作。
+如果你遵循这条金科玉律，就不会出差错。否则，人民群众会仇恨你，你的朋友和家人也会嘲笑你，唾弃你。
+
+
+
+
+
+
+
+
