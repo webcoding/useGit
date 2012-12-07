@@ -94,7 +94,8 @@ git checkout -b sf origin/serverfix 更名为sf
 git push origin :serverfix
 咚！服务器上的分支没了。你最好特别留心这一页，因为你一定会用到那个命令，而且你很可能会忘掉它的语法。有种方便记忆这条命令的方法：记住我们不久前见过的 git push [远程名] [本地分支]:[远程分支] 语法，如果省略 [本地分支]，那就等于是在说“在这里提取空白然后把它变成[远程分支]”。
 
-
+比如在master分支时删除develop分支
+git push origin :develop
 
 
 
