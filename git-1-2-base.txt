@@ -1,4 +1,3 @@
-
 Study from:http://www.tcreator.info/webSchool/tools/git-1-getstart.html
 Study from:http://www.tcreator.info/webSchool/tools/git-2-base.html
 
@@ -9,14 +8,14 @@ $ git config --global user.name "John Doe"
 $ git config --global user.email johndoe@example.com
 
 
-ÉèÖÃÄ¬ÈÏÊ¹ÓÃµÄÎÄ±¾±à¼­Æ÷
+è®¾ç½®é»˜è®¤ä½¿ç”¨çš„æ–‡æœ¬ç¼–è¾‘å™¨
 $ git config --global core.editor emacs
 
-²îÒì·ÖÎö¹¤¾ß£¬ÀıÈç£º
+å·®å¼‚åˆ†æå·¥å…·ï¼Œä¾‹å¦‚ï¼š
 git config --global merge.tool vimdiff
 
 
-¼ì²éÒÑÓĞµÄÅäÖÃĞÅÏ¢
+æ£€æŸ¥å·²æœ‰çš„é…ç½®ä¿¡æ¯
 git config --list
 
 $ git help 
@@ -26,60 +25,74 @@ $ git help config
 
 
 
+Create a new repository on the command line
+
+<pre>
+touch README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/webcoding/FrontEnd-Standard.git
+git push -u origin master
+</pre>
+
+Push an existing repository from the command line
+
+<pre>
+git remote add origin https://github.com/webcoding/FrontEnd-Standard.git
+git push -u origin master
+</pre>
 
 
-
-
-
-³õÊ¼»¯ĞÂ²Ö¿â
+åˆå§‹åŒ–æ–°ä»“åº“
 git init
 
 
 $ git clone git://github.com/schacon/grit.git
-$ git clone git://github.com/schacon/grit.git mygrit  #ÏîÄ¿ÖØÃüÃû
+$ git clone git://github.com/schacon/grit.git mygrit  #é¡¹ç›®é‡å‘½å
 
-²é¿´ÎÄ¼şµ±Ç°´¦ÓÚÊ²Ã´×´Ì¬£¬
+æŸ¥çœ‹æ–‡ä»¶å½“å‰å¤„äºä»€ä¹ˆçŠ¶æ€ï¼Œ
 git status
 
-git add ¿ªÊ¼¸ú×ÙÒ»¸öĞÂÎÄ¼ş
-Ôİ´æÕâ´Î¸üĞÂ£¬ĞèÒªÔËĞĞgit add ÃüÁî£¨ÕâÊÇ¸ö¶à¹¦ÄÜÃüÁî£¬¸ù¾İÄ¿±êÎÄ¼şµÄ×´Ì¬²»Í¬£¬´ËÃüÁîµÄĞ§¹ûÒ²²»Í¬£º¿ÉÒÔÓÃËü¿ªÊ¼¸ú×ÙĞÂÎÄ¼ş£¬»òÕß°ÑÒÑ¸ú×ÙµÄÎÄ¼ş·Åµ½Ôİ´æÇø£¬»¹ÄÜÓÃÓÚºÏ²¢Ê±°ÑÓĞ³åÍ»µÄÎÄ¼ş±ê¼ÇÎªÒÑ½â¾ö×´Ì¬µÈ£©
-git diff²é¿´ÉĞÎ´Ôİ´æµÄÎÄ¼ş¸üĞÂÁËÄÄĞ©²¿·Ö
-git diff --cached ÃüÁî ÒÑ¾­Ôİ´æÆğÀ´µÄÎÄ¼şºÍÉÏ´ÎÌá½»Ê±µÄ¿ìÕÕÖ®¼äµÄ²îÒì
-git diff --staged£¬Git 1.6.1 ¼°¸ü¸ß°æ±¾»¹ÔÊĞíÊ¹ÓÃÕâ¸ö£¬Ğ§¹ûÊÇÏàÍ¬µÄ£¬µ«¸üºÃ¼ÇĞ©
+git add å¼€å§‹è·Ÿè¸ªä¸€ä¸ªæ–°æ–‡ä»¶
+æš‚å­˜è¿™æ¬¡æ›´æ–°ï¼Œéœ€è¦è¿è¡Œgit add å‘½ä»¤ï¼ˆè¿™æ˜¯ä¸ªå¤šåŠŸèƒ½å‘½ä»¤ï¼Œæ ¹æ®ç›®æ ‡æ–‡ä»¶çš„çŠ¶æ€ä¸åŒï¼Œæ­¤å‘½ä»¤çš„æ•ˆæœä¹Ÿä¸åŒï¼šå¯ä»¥ç”¨å®ƒå¼€å§‹è·Ÿè¸ªæ–°æ–‡ä»¶ï¼Œæˆ–è€…æŠŠå·²è·Ÿè¸ªçš„æ–‡ä»¶æ”¾åˆ°æš‚å­˜åŒºï¼Œè¿˜èƒ½ç”¨äºåˆå¹¶æ—¶æŠŠæœ‰å†²çªçš„æ–‡ä»¶æ ‡è®°ä¸ºå·²è§£å†³çŠ¶æ€ç­‰ï¼‰
+git diffæŸ¥çœ‹å°šæœªæš‚å­˜çš„æ–‡ä»¶æ›´æ–°äº†å“ªäº›éƒ¨åˆ†
+git diff --cached å‘½ä»¤ å·²ç»æš‚å­˜èµ·æ¥çš„æ–‡ä»¶å’Œä¸Šæ¬¡æäº¤æ—¶çš„å¿«ç…§ä¹‹é—´çš„å·®å¼‚
+git diff --stagedï¼ŒGit 1.6.1 åŠæ›´é«˜ç‰ˆæœ¬è¿˜å…è®¸ä½¿ç”¨è¿™ä¸ªï¼Œæ•ˆæœæ˜¯ç›¸åŒçš„ï¼Œä½†æ›´å¥½è®°äº›
 
 =====================
-.gitignore ÎÄ¼ş
+.gitignore æ–‡ä»¶
 
-# ´ËÎª×¢ÊÍ ¨C ½«±» Git ºöÂÔ
-*.[oa]    # ºöÂÔËùÓĞÒÔ .o »ò .a ½áÎ²µÄÎÄ¼ş
-*~        # ºöÂÔËùÓĞÒÔ²¨ÀË·û£¨~£©½áÎ²µÄÎÄ¼ş
-*.a       # ºöÂÔËùÓĞ .a ½áÎ²µÄÎÄ¼ş
-!lib.a    # µ« lib.a ³ıÍâ
-/TODO     # ½ö½öºöÂÔÏîÄ¿¸ùÄ¿Â¼ÏÂµÄ TODO ÎÄ¼ş£¬²»°üÀ¨ subdir/TODO
-build/    # ºöÂÔ build/ Ä¿Â¼ÏÂµÄËùÓĞÎÄ¼ş
-doc/*.txt # »áºöÂÔ doc/notes.txt µ«²»°üÀ¨ doc/server/arch.txt
+# æ­¤ä¸ºæ³¨é‡Š â€“ å°†è¢« Git å¿½ç•¥
+*.[oa]    # å¿½ç•¥æ‰€æœ‰ä»¥ .o æˆ– .a ç»“å°¾çš„æ–‡ä»¶
+*~        # å¿½ç•¥æ‰€æœ‰ä»¥æ³¢æµªç¬¦ï¼ˆ~ï¼‰ç»“å°¾çš„æ–‡ä»¶
+*.a       # å¿½ç•¥æ‰€æœ‰ .a ç»“å°¾çš„æ–‡ä»¶
+!lib.a    # ä½† lib.a é™¤å¤–
+/TODO     # ä»…ä»…å¿½ç•¥é¡¹ç›®æ ¹ç›®å½•ä¸‹çš„ TODO æ–‡ä»¶ï¼Œä¸åŒ…æ‹¬ subdir/TODO
+build/    # å¿½ç•¥ build/ ç›®å½•ä¸‹çš„æ‰€æœ‰æ–‡ä»¶
+doc/*.txt # ä¼šå¿½ç•¥ doc/notes.txt ä½†ä¸åŒ…æ‹¬ doc/server/arch.txt
 
-Ìá½»¸üĞÂ
+æäº¤æ›´æ–°
 
-Ìá½»ÃüÁî(Ôİ´æÆğÀ´git addµÄ)
+æäº¤å‘½ä»¤(æš‚å­˜èµ·æ¥git addçš„)
 git commit
 
-¿ÉÒÔÓÃ -m ²ÎÊıºó¸úÌá½»ËµÃ÷µÄ·½Ê½£¬ÔÚÒ»ĞĞÃüÁîÖĞÌá½»¸üĞÂ£º
-git commit -m "edit intro"  #ÕâÑùÌá½»Ç°¾Í²»ÓÃgit addÁË
+å¯ä»¥ç”¨ -m å‚æ•°åè·Ÿæäº¤è¯´æ˜çš„æ–¹å¼ï¼Œåœ¨ä¸€è¡Œå‘½ä»¤ä¸­æäº¤æ›´æ–°ï¼š
+git commit -m "edit intro"  #è¿™æ ·æäº¤å‰å°±ä¸ç”¨git addäº†
 
 
-Ìø¹ıÊ¹ÓÃÔİ´æÇøÓò
--a Ñ¡Ïî£¬Git ¾Í»á×Ô¶¯°ÑËùÓĞÒÑ¾­¸ú×Ù¹ıµÄÎÄ¼şÔİ´æÆğÀ´Ò»²¢Ìá½»£¬´Ó¶øÌø¹ı git add ²½Öè£º
+è·³è¿‡ä½¿ç”¨æš‚å­˜åŒºåŸŸ
+-a é€‰é¡¹ï¼ŒGit å°±ä¼šè‡ªåŠ¨æŠŠæ‰€æœ‰å·²ç»è·Ÿè¸ªè¿‡çš„æ–‡ä»¶æš‚å­˜èµ·æ¥ä¸€å¹¶æäº¤ï¼Œä»è€Œè·³è¿‡ git add æ­¥éª¤ï¼š
 
 git commit -a -m "edit intro"
 
-ÍÆËÍÊı¾İµ½Ô¶³Ì²Ö¿â
+æ¨é€æ•°æ®åˆ°è¿œç¨‹ä»“åº“
 git push origin master
 
 git remote show origin
 
-git remote rename pb paul  ÖØÃüÃûpbÎªpaul
-git remote rm paul ÒÆ³ıÔ¶¶Ë²Ö¿â
+git remote rename pb paul  é‡å‘½åpbä¸ºpaul
+git remote rm paul ç§»é™¤è¿œç«¯ä»“åº“
 
 
 
@@ -88,18 +101,22 @@ git remote rm paul ÒÆ³ıÔ¶¶Ë²Ö¿â
 
 
 
-ÁĞÏÔÒÑÓĞµÄ±êÇ©
+åˆ—æ˜¾å·²æœ‰çš„æ ‡ç­¾
 git tag
 git tag -l 'v1.4.2.*'
 
-ĞÂ½¨±êÇ©
+æ–°å»ºæ ‡ç­¾
 git tag -a v1.4 -m 'my version 1.4'
 git show v1.4
 
-Ç©Êğ±êÇ©
+ç­¾ç½²æ ‡ç­¾
 git tag -s v1.5 -m 'my signed 1.5 tag'
-ÔÙÔËĞĞ git show »á¿´µ½¶ÔÓ¦µÄ GPG Ç©ÃûÒ²¸½ÔÚÆäÄÚ£º
+å†è¿è¡Œ git show ä¼šçœ‹åˆ°å¯¹åº”çš„ GPG ç­¾åä¹Ÿé™„åœ¨å…¶å†…ï¼š
 git show v1.5
+
+
+
+
 
 
 
