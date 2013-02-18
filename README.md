@@ -4,10 +4,10 @@ useGit
 这是一个学习Git 用于测试的项目
 
 软件安装
-  Git客户端[http://code.google.com/p/msysgit/downloads/list]()
+  Git客户端[http://code.google.com/p/msysgit/downloads/list](http://code.google.com/p/msysgit/downloads/list)
 
 其他软件
-  TortoiseGit[https://code.google.com/p/tortoisegit/downloads/list]()
+  TortoiseGit[https://code.google.com/p/tortoisegit/downloads/list](https://code.google.com/p/tortoisegit/downloads/list)
 
 Git详解教程列表：
 ---------------
