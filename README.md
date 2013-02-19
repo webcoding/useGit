@@ -85,7 +85,7 @@ git pull   //从远程分支更新
 
 # 图形化软件TortoiseGit与github网站关联 
 
-如果你不喜欢Git命令行，那么你可以使用图形化软件TortoiseGit来管理，使用起来也是非常简单方便，这是Windows用户的最爱。
+如果你不喜欢Git命令行，那么你可以使用图形化软件TortoiseGit来管理，TortoiseGit 是 TortoiseSVN的Git版，它很好的实现了与windows资源管理器的融合，使用界面与TortoiseSVN非常类似。
 
 安装好 [TortoiseGit](https://code.google.com/p/tortoisegit/downloads/list) (有中文包的) 后，需要如下操作，但首先你要了解一点：
 
