@@ -4,7 +4,6 @@ useGit
 这是一个学习Git 用于测试的项目，所需软件
 
 - 命令行 - Git客户端 [http://code.google.com/p/msysgit/downloads/list](http://code.google.com/p/msysgit/downloads/list)
-
 - 图形化界面 - TortoiseGit [https://code.google.com/p/tortoisegit/downloads/list](https://code.google.com/p/tortoisegit/downloads/list)
 
 在使用之前建议先大体了解一下git的相关基础：
@@ -35,10 +34,10 @@ cd ~/
 mkdir .ssh
 cd .ssh
 ssh-keygen -t rsa
-#输入文件名称保存即可，比如：webcoding_rsa（名称默认不输入为id_rsa亦可）
+#直接N次回车即可，默认为id_rsa）
 </pre>
 
-设置关联（复制上面产生的key——webcoding_rsa.pub中代码——全选即可）
+设置关联（复制上面产生的key——id_rsa.pub中代码——全选即可）
 在github网站setting中找到Add SSH Keys，添加复制的内容即可。
 
 如果没有.ssh目录，则自己新建一个目录即可，下面提供一些常用命令：
@@ -47,7 +46,7 @@ ssh-keygen -t rsa
 修改：mv .ssb .ssh
 删除：rm -rf .ssh
 创建文件：touch README.md
-输出文本：cat webcoding_rsa
+输出文本：cat id_rsa
 </pre>
 
 如此即关联完毕。
