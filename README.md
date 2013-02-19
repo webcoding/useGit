@@ -95,7 +95,7 @@ TortoiseGit 使用扩展名为ppk的密钥，而不是ssh-keygen生成的rsa密�
 
 运行TortoiseGit开始菜单中的puttygen程序，点击“Generate”按钮，鼠标在上图的空白地方来回移动直到进度条完毕，就会自动生一个随机的key。保存public key（此需要添加到github网站上） 和private key（此后缀为.ppk，后面要用）
 
-设置关联同上Git的关联，除此之外，需要右键指定的项目，选择TortoiseGit->Settings，设置Remote 其Putty即为上面保存的.ppk文件。麻烦之处是针对每个项目初次都要设置remote中的.ppk的路径。（参看更详细 [TortoiseGit配置说明](http://www.tcreator.info/webSchool/tools/git-TortoiseGit.html)）
+设置关联同上Git的关联，除此之外，需要右键指定的项目，选择TortoiseGit->Settings，设置Remote 其Putty即为上面保存的.ppk文件。麻烦之处是针对每个项目初次都要设置remote中的.ppk的路径。（参看更详细 [TortoiseGit配置说明](http://www.tcreator.info/webSchool/tools/git-TortoiseGit.html) 3.4这一段—— 建立沟通远程版本库与TortoiseGit的联系）
 
 如此便操作完毕，可以无障碍使用了。
 
