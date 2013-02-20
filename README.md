@@ -8,6 +8,9 @@ useGit
 
 在使用之前建议先大体了解一下git的相关基础：
 
+## 如果学习使用并测试项目，请使用 [Webtest](https://github.com/webframe/webtest) 来测试学习。
+不要用正在线运营的项目
+
 Git详解教程列表：
 ---------------
 * [Git详解之一 Git起步](http://www.tcreator.info/webSchool/tools/git-1-getstart.html)
