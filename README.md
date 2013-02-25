@@ -122,4 +122,60 @@ fatal: Not a git repository (or any of the parent directories): .git
 
 
 
+## 新建分支并关联到远程(github网站)
 
+<pre>
+cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (master)
+$ git branch dev    //新建分支
+$ git checkout dev  //切换分支
+$ git branch --list  //本地切换至新分支，但此时新分支并未在远程(github网站)新建
+* dev
+  gh-pages
+  master
+</pre>
+<pre>
+cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (dev)
+$ git push     // 常规操作，系统会提示远程没有当前dev分支，并提示操作方法新建远程分支
+fatal: The current branch dev has no upstream branch.
+To push the current branch and set the remote as upstream,
+
+    git push --set-upstream origin dev
+
+
+cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (dev)
+$ git push --set-upstream origin dev   // 设置远程分支
+Total 0 (delta 0), reused 0 (delta 0)
+To git@github.com:webframe/cnBootstrap.git
+ * [new branch]      dev -> dev
+Branch dev set up to track remote branch dev from origin.
+</pre>
+<pre>
+cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (dev)
+$ git branch --list  //查看分支，新建了分支并切换成功同时与远程分支建立了联系
+* dev
+  gh-pages
+</pre>
+
+新建并关联成功
+  
+  
+## 从主干下拉并切换分支（如果远程已经新建分支， 在本地如何关联远程分支）
+
+<pre>
+cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (master)
+$ git fetch origin
+</pre>
+<pre>
+cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (master)
+$ git checkout dev
+Branch dev set up to track remote branch dev from origin.
+Switched to a new branch 'dev'
+</pre>
+<pre>
+cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (dev)
+$ git branch --list
+* dev
+  master
+</pre>
+
+关联并操作成功
