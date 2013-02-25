@@ -124,6 +124,8 @@ fatal: Not a git repository (or any of the parent directories): .git
 
 ## 新建分支并关联到远程(github网站)
 
+如果远程已经有了分支，请使用章节（从主干下拉分支并关联分支）的命令
+
 <pre>
 cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (master)
 $ git branch dev    //新建分支
@@ -159,7 +161,9 @@ $ git branch --list  //查看分支，新建了分支并切换成功同时与远
 新建并关联成功
   
   
-## 从主干下拉并切换分支（如果远程已经新建分支， 在本地如何关联远程分支）
+## 从主干下拉分支并关联分支
+
+针对远程已经新建了分支， 在本地如何关联远程的分支
 
 <pre>
 cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (master)
