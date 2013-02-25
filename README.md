@@ -8,6 +8,9 @@ useGit
 
 在使用之前建议先大体了解一下git的相关基础：
 
+## 如果学习使用并测试项目，请使用 [Webtest](https://github.com/webframe/webtest) 来测试学习。
+不要用正在线运营的项目
+
 Git详解教程列表：
 ---------------
 * [Git详解之一 Git起步](http://www.tcreator.info/webSchool/tools/git-1-getstart.html)
@@ -30,17 +33,22 @@ Git详解教程列表：
 使用ssh加密实现与github网站的关联，避免每次同步都需要填写帐户密码，首次产生一个ssh key：
 
 <pre>
+cd ~/.ssh
+ssh-keygen -t rsa
+#直接N次回车即可，默认为id_rsa）
+</pre>
+
+如果没有.ssh目录，则自己新建一个目录即可:
+<pre>
 cd ~/
 mkdir .ssh
 cd .ssh
-ssh-keygen -t rsa
-#直接N次回车即可，默认为id_rsa）
 </pre>
 
 设置关联（复制上面产生的key——id_rsa.pub中代码——全选即可）
 在github网站setting中找到Add SSH Keys，添加复制的内容即可。
 
-如果没有.ssh目录，则自己新建一个目录即可，下面提供一些常用命令：
+下面提供一些常用的文件/文件夹操作的命令：
 <pre>
 创建：mkdir .ssh
 修改：mv .ssb .ssh
@@ -114,4 +122,60 @@ fatal: Not a git repository (or any of the parent directories): .git
 
 
 
+## 新建分支并关联到远程(github网站)
 
+<pre>
+cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (master)
+$ git branch dev    //新建分支
+$ git checkout dev  //切换分支
+$ git branch --list  //本地切换至新分支，但此时新分支并未在远程(github网站)新建
+* dev
+  gh-pages
+  master
+</pre>
+<pre>
+cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (dev)
+$ git push     // 常规操作，系统会提示远程没有当前dev分支，并提示操作方法新建远程分支
+fatal: The current branch dev has no upstream branch.
+To push the current branch and set the remote as upstream,
+
+    git push --set-upstream origin dev
+
+
+cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (dev)
+$ git push --set-upstream origin dev   // 设置远程分支
+Total 0 (delta 0), reused 0 (delta 0)
+To git@github.com:webframe/cnBootstrap.git
+ * [new branch]      dev -> dev
+Branch dev set up to track remote branch dev from origin.
+</pre>
+<pre>
+cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (dev)
+$ git branch --list  //查看分支，新建了分支并切换成功同时与远程分支建立了联系
+* dev
+  gh-pages
+</pre>
+
+新建并关联成功
+  
+  
+## 从主干下拉并切换分支（如果远程已经新建分支， 在本地如何关联远程分支）
+
+<pre>
+cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (master)
+$ git fetch origin
+</pre>
+<pre>
+cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (master)
+$ git checkout dev
+Branch dev set up to track remote branch dev from origin.
+Switched to a new branch 'dev'
+</pre>
+<pre>
+cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (dev)
+$ git branch --list
+* dev
+  master
+</pre>
+
+关联并操作成功
