@@ -26,29 +26,30 @@ Git详解教程列表：
 
 其他更多Git教程及疑问请看[Git教程列表](http://www.tcreator.info/tags.php?/GIT/)。
 
+# Git与github操作指南
 
-# Git命令行与github网站关联 
-
+## Git命令行模式与github网站关联 
 
 使用ssh加密实现与github网站的关联，避免每次同步都需要填写帐户密码，首次产生一个ssh key：
 
 <pre>
-cd ~/.ssh
-ssh-keygen -t rsa
-#直接N次回车即可，默认为id_rsa）
-</pre>
+cd ~/.ssh 
 
-如果没有.ssh目录，则自己新建一个目录即可:
-<pre>
-cd ~/
-mkdir .ssh
-cd .ssh
+// 如果没有.ssh目录，则自己新建此目录即可，如下
+// cd ~/
+// mkdir .ssh
+// cd .ssh
+
+ssh-keygen -t rsa  //直接 N 次回车即可，默认名为id_rsa，不用修改即可
+#
 </pre>
 
 设置关联（复制上面产生的key——id_rsa.pub中代码——全选即可）
 在github网站setting中找到Add SSH Keys，添加复制的内容即可。
 
-下面提供一些常用的文件/文件夹操作的命令：
+如此即关联完毕，如此在之后与github网站的push、pull操作则不用再输入github帐户密码了，非常方便。
+
+下面提供一些命令行中常用的文件/文件夹操作命令：
 <pre>
 创建：mkdir .ssh
 修改：mv .ssb .ssh
@@ -57,42 +58,31 @@ cd .ssh
 输出文本：cat id_rsa
 </pre>
 
-如此即关联完毕。
+### 首次使用需要的一些配置设置
 
-第一次使用需要设置全局config，一般设置下面的即可：
+第一次使用git，一般需要设置全局config，如下：
 
 <pre>
 $ git config --global user.name "John Doe"
 $ git config --global user.email johndoe@example.com
 </pre>
 
-新版本在使用git push时，会提示设置git config --global push.default 
-将其设置为simple就行了，如下：
+第一次使用git push时，会提示设置git config --global push.default 将其设置为simple就行了，如下：
 
 <pre>
 git config --global push.default simple
 </pre>
 
-以上配置完毕，就可以clone一个远程项目了，如下：(注意选择项目目录，别clone到.ssh目录下了)
+以上配置完毕，就可以clone一个远程项目了，下面会给出一个完整详细的git项目操作示例，在文末还会将命令行示例中的常用命令做一汇总列表，方便查阅参考。
 
+## GIt命令行模式操作项目的详细步骤示例（此处以 https://github.com/pandoraui/webtest 测试项目为例详解）
+
+首先克隆此项目（注意选择项目目录，别clone到.ssh目录下了)
 <pre>
-git clone git@github.com:webcoding/useGit.git
+git clone git@github.com:pandoraui/webtest.git  //(注意选择项目目录，此处我们以E:/git文件夹为例)
 </pre>
 
-之后就可以修改项目文件，提交上传了。修改文件后可以操作如下命令：
 
-<pre>
-git status //查看修改了什么
-git add .  //跟踪修改的文件.代表当前文件夹(间接代表当前目录所有文件)，也可以用指定的文件
-git commit -m "简单的注释，修改了什么"  //注意git对中文的支持不太友好，暂未提供优化方法
-git push   //提交到远程分支(github网站上)
-
-git pull   //从远程分支更新
-</pre>
-
-如果想新建分支等，可以参看 [Git详解之三 Git分支](http://www.tcreator.info/webSchool/tools/git-3-branch.html)
-
-用的多了就熟练了，Git命令行确实很简单而且功能十分强悍！建议多用用命令行模式。
 
 # 图形化软件TortoiseGit与github网站关联 
 
@@ -111,6 +101,10 @@ TortoiseGit 使用扩展名为ppk的密钥，而不是ssh-keygen生成的rsa密�
 如此便操作完毕，可以无障碍使用了。
 
 如有疑问可以加QQ群：187260298 咨询讨论，Good Luck ！
+
+
+
+
 
 ### 遇到错误：###
 
@@ -183,3 +177,45 @@ $ git branch --list
 </pre>
 
 关联并操作成功
+
+这里先熟悉一些常用的操作命令以及说明，如下：
+
+<pre>
+git status //查看修改了什么
+git add .  //跟踪修改的文件.代表当前文件夹(间接代表当前目录所有文件)，也可以用指定的文件
+git commit -m "简单的注释，修改了什么"  //注意git对中文的支持不太友好，暂未提供优化方法
+git push   //提交到远程分支(github网站上)，如果远程没有此分支，系统会提示如何操作，命令如下：
+git push --set-upstream origin proname //对应远程的项目名称proname
+
+git pull   //从远程分支更新（从默认项目分支）
+git pull git@github.com:other/useGit.git  //从其他项目分支合并更新
+
+git branch testing   //新建分支
+git checkout testing //切换分支
+git checkout master  //切换回主干
+
+git checkout -b testing //新建分支并切换过去
+相当于执行下面这两条命令：
+git branch testing
+git checkout testing
+
+修改分支testing后合并到主干
+git checkout master  //首先切换到主干
+git merge testing    //合并分支testing
+
+合并后，testing分支完成历史使命，就可以删掉了
+git branch -d testing
+
+如果在合并git merge testing的时候，出现了下面的错误提示
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+产生了冲突，可以git status(逻辑上说，这种问题只能由人来裁决。)
+
+
+
+</pre>
+
+如果想新建分支等，可以参看 [Git详解之三 Git分支](http://www.tcreator.info/webSchool/tools/git-3-branch.html)
+
+用的多了就熟练了，Git命令行确实很简单而且功能十分强悍！建议多用用命令行模式。
