@@ -70,40 +70,96 @@ $ git config --global user.email johndoe@example.com
 第一次使用git push时，会提示设置git config --global push.default 将其设置为simple就行了，如下：
 
 <pre>
-git config --global push.default simple
+git config --global push.default simple  //你可以直接如此设置，不必等操作遇到才设置
 </pre>
 
 以上配置完毕，就可以clone一个远程项目了，下面会给出一个完整详细的git项目操作示例，在文末还会将命令行示例中的常用命令做一汇总列表，方便查阅参考。
 
-## GIt命令行模式操作项目的详细步骤示例（此处以 https://github.com/pandoraui/webtest 测试项目为例详解）
+## GIt命令行模式操作项目的详细步骤示例(此处以[Git测试项目](https://github.com/pandoraui/webtest)为例详解）
 
-首先克隆此项目（注意选择项目目录，别clone到.ssh目录下了)
+为了方便练习，确保有各种的权限操作，你可以fork一个[git测试项目webtest](https://github.com/pandoraui/useGit)，之后操作的时候把路径换成自己的就行了。
+
+首先把项目克隆到本地（注意要选择项目目录，别clone到之前的.ssh目录下了)
 <pre>
-git clone git@github.com:pandoraui/webtest.git  //(注意选择项目目录，此处我们以E:/git文件夹为例)
+//在项目目录右键选择Git Bash
+Jack@ALICE /E/git
+$ git clone git@github.com:pandoraui/webtest.git  //(注意选择项目目录，此处我们以E:/git文件夹为例)
+cd
+$ cd webtest //操作需要在项目文件夹内，不然直接进行git命令操作时，会提示错误
 </pre>
 
+下面我们对内部文件进行及提交（更详细的基础操作，请参看[Git基础](http://www.tcreator.info/webSchool/tools/git-2-base.html)）
 
+git status  //查看文件当前处于什么状态
+git commit -a -m "edit intro"  //添加、修改以及合并提交
+git push 推送到远程分支（github网站/Git服务器上），第一次操作新分支时，系统会提示远程没有当前testing分支，并提示操作方法新建远程分支，如下：
+fatal: The current branch dev has no upstream branch.
+To push the current branch and set the remote as upstream,
+
+    git push --set-upstream origin dev
+
+
+cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (dev)
+$ git push --set-upstream origin testing //把新建的本地分支推送到远程
+
+git pull //从远程分支下拉更新（从默认的当前远程分支），直接merge合并到当前项目中
+git pull git@github.com:other/useGit.git  //从其他项目链接合并更新
+
+管理分支
+
+git branch testing   //新建分支
+git checkout testing //切换分支
+git checkout master  //切换回主干
+
+git checkout -b testing //新建分支并切换过去
+相当于执行下面这两条命令：
+git branch testing
+git checkout testing
+
+修改分支testing后合并到主干
+git checkout master  //首先切换到主干
+git merge testing    //合并分支testing
+
+git branch --list  //查看分支，新建了分支并切换成功同时与远程分支建立了联系
+
+合并后，testing分支完成历史使命，就可以删掉了
+git branch -d testing  //此时如果此之前已经将此分支推送到了远程，那么本地分支删除，远程github网站上还是有此分支的。
+
+如果在合并git merge testing的时候，出现了下面的错误提示
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+产生了冲突，可以git status(逻辑上说，这种问题只能由人来裁决。)
+
+解决完冲突，执行merge添加、修改以及合并提交命令即可。
+    
+//本地分支删除后，下面删除远程分支testing
+git push origin :testing  
+
+如此，这些命令能满足最常用的git操作。
 
 # 图形化软件TortoiseGit与github网站关联 
 
-如果你不喜欢Git命令行，那么你可以使用图形化软件TortoiseGit来管理，TortoiseGit 是 TortoiseSVN的Git版，它很好的实现了与windows资源管理器的融合，使用界面与TortoiseSVN非常类似。
+如果你不喜欢Git命令行，那么你可以在安装以上软件后，使用图形化软件TortoiseGit来管理，TortoiseGit 是 TortoiseSVN的Git版，它很好的实现了与windows资源管理器的融合，使用界面与TortoiseSVN 非常类似。
 
 安装好 [TortoiseGit](https://code.google.com/p/tortoisegit/downloads/list) (有中文包的) 后，需要如下操作，但首先你要了解一点：
 
 TortoiseGit 使用扩展名为ppk的密钥，而不是ssh-keygen生成的rsa密钥。也就是说使用ssh-keygen -C "username@email.com" -t rsa产生的密钥在TortoiseGit中不能用。而基于github的开发必须要用到rsa密钥，因此需要用到TortoiseGit的putty key generator工具来生成既适用于github的rsa密钥也适用于TortoiseGit的ppk密钥。
 
+如此，就需要在TortoiseGit中也要设置与github网站的关联。
+
 **具体操作如下：**
 
-运行TortoiseGit开始菜单中的puttygen程序，点击“Generate”按钮，鼠标在上图的空白地方来回移动直到进度条完毕，就会自动生一个随机的key。保存public key（此需要添加到github网站上） 和private key（此后缀为.ppk，后面要用）
+运行TortoiseGit开始菜单中的puttygen程序，点击“Generate”按钮，鼠标在其软件界面中的空白地方来回移动直到进度条完毕，就会自动生一个随机的key。保存public key（此需要添加到github网站上） 和private key（此后缀为.ppk，后面要用）
 
-设置关联同上Git的关联，除此之外，需要右键指定的项目，选择TortoiseGit->Settings，设置Remote 其Putty即为上面保存的.ppk文件。麻烦之处是针对每个项目初次都要设置remote中的.ppk的路径。（参看更详细 [TortoiseGit配置说明](http://www.tcreator.info/webSchool/tools/git-TortoiseGit.html) 3.4这一段—— 建立沟通远程版本库与TortoiseGit的联系）
+在github网站上添加key操作Git key的添加，除此之外，需要右键指定具体的项目，选择TortoiseGit->Settings，设置Remote 其Putty即为上面保存的.ppk文件。麻烦之处是针对每个项目初次都要设置remote中的.ppk的路径。（参看更详细 [TortoiseGit配置说明](http://www.tcreator.info/webSchool/tools/git-TortoiseGit.html) 3.4这一段—— 建立沟通远程版本库与TortoiseGit的联系）
 
-如此便操作完毕，可以无障碍使用了。
+事实上，在clone一个新项目时，可以使用图形化界面，其中有一项便是**加载putty密钥**，选择密钥的路径即可，如
+C:\Users\Jack\.ssh\pandora.ppk 如此，之后在该项目的右键settings-remote处便已经添加了密钥路径，效果同上操作。
+
+如此之后便可以无障碍使用图形化界面上传下拉git项目了。
 
 如有疑问可以加QQ群：187260298 咨询讨论，Good Luck ！
-
-
-
 
 
 ### 遇到错误：###
@@ -129,27 +185,30 @@ $ git branch --list  //本地切换至新分支，但此时新分支并未在远
   gh-pages
   master
 </pre>
+
+如果远程没有此分子,那么当你操作push命令时,
+
 <pre>
-cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (dev)
 $ git push     // 常规操作，系统会提示远程没有当前dev分支，并提示操作方法新建远程分支
 fatal: The current branch dev has no upstream branch.
 To push the current branch and set the remote as upstream,
 
-    git push --set-upstream origin dev
+    git push --set-upstream origin testing
 
 
-cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (dev)
-$ git push --set-upstream origin dev   // 设置远程分支
+cloudyan@IT0101 /E/git/webtest (testing)
+$ git push --set-upstream origin testing   // 设置远程分支
 Total 0 (delta 0), reused 0 (delta 0)
-To git@github.com:webframe/cnBootstrap.git
- * [new branch]      dev -> dev
+To git@github.com:pandoraui/webtest.git
+ * [new branch]      testing -> testing
 Branch dev set up to track remote branch dev from origin.
 </pre>
+
 <pre>
-cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (dev)
+cloudyan@IT0101 /E/git/webtest (testing)
 $ git branch --list  //查看分支，新建了分支并切换成功同时与远程分支建立了联系
-* dev
-  gh-pages
+* testing
+  master
 </pre>
 
 新建并关联成功
@@ -160,25 +219,25 @@ $ git branch --list  //查看分支，新建了分支并切换成功同时与远
 针对远程已经新建了分支， 在本地如何关联远程的分支
 
 <pre>
-cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (master)
+cloudyan@IT0101 /E/git/webtest (master)
 $ git fetch origin
 </pre>
 <pre>
-cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (master)
+cloudyan@IT0101 /E/git/webtest (master)
 $ git checkout dev
 Branch dev set up to track remote branch dev from origin.
 Switched to a new branch 'dev'
 </pre>
 <pre>
-cloudyan@IT0101 /E/wamp/www/webframe/cnBootstrap (dev)
+cloudyan@IT0101 /E/git/webtest (testing)
 $ git branch --list
-* dev
+* testing
   master
 </pre>
 
 关联并操作成功
 
-这里先熟悉一些常用的操作命令以及说明，如下：
+这里是git命令行操作最常用的操作命令以及说明，如下：
 
 <pre>
 git status //查看修改了什么
@@ -211,9 +270,6 @@ Auto-merging index.html
 CONFLICT (content): Merge conflict in index.html
 Automatic merge failed; fix conflicts and then commit the result.
 产生了冲突，可以git status(逻辑上说，这种问题只能由人来裁决。)
-
-
-
 </pre>
 
 如果想新建分支等，可以参看 [Git详解之三 Git分支](http://www.tcreator.info/webSchool/tools/git-3-branch.html)
