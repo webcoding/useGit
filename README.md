@@ -6,6 +6,8 @@ useGit
 - 命令行 - Git客户端 [http://code.google.com/p/msysgit/downloads/list](http://code.google.com/p/msysgit/downloads/list)
 - 图形化界面 - TortoiseGit [https://code.google.com/p/tortoisegit/downloads/list](https://code.google.com/p/tortoisegit/downloads/list)
 
+另外，关于文档说明文件，如readme.md文件，详情参看 [Markdown 语法说明](http://10.3.1.41/cnbootstrap/wf/xOne/markdown.html)--内网访问。
+
 在使用之前建议先大体了解一下git的相关基础：
 
 ## 如果学习使用并测试项目，请使用 [Webtest](https://github.com/webframe/webtest) 来测试学习。
