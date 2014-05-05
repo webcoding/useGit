@@ -214,8 +214,8 @@ C:\Users\Jack\.ssh\pandora.ppk 如此，之后在该项目的右键settings-remo
     $ git fetch origin
     
     // 如果你的命令无效，我在win8中使用1.8.3就上述命令执行无效，
-    // 可以使用 git checkout -b 本地分支名 远程分支名，如：
-    // git checkout -b v4 origin/v4  //v3项目中的分支v4
+    // 可以使用 git checkout -t 本地分支名 远程分支名，如：
+    // git checkout -t v4 origin/v4  //v3项目中的分支v4，分支名同则可省略，如：git checkout -t origin/gh-pages
     // 使用 git branch -r可以查看远程分支
 
     cloudyan@IT0101 /E/git/webtest (master)
