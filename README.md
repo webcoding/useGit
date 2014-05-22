@@ -7,7 +7,7 @@ useGit
 [git-scm.com](http://git-scm.com/downloads)
 - 图形化界面 - TortoiseGit [https://code.google.com/p/tortoisegit/downloads/list](https://code.google.com/p/tortoisegit/wiki/Download)
 
-另外，关于文档说明文件，如readme.md文件，详情参看 [Markdown 语法说明](http://10.3.1.41/cnbootstrap/wf/xOne/markdown.html)--内网访问。
+另外，关于文档说明文件，如readme.md文件，详情参看 [Markdown 语法说明](http://www.tcreator.info/pandora/docs/modules/markdown.html)。
 
 在使用之前建议先大体了解一下git的相关基础：
 
