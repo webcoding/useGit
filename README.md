@@ -27,7 +27,8 @@ Git详解教程列表：
 * [Git详解之九 Git内部原理](http://www.tcreator.info/webSchool/tools/git-9-internal-principle.html)
 
 
-其他更多Git教程及疑问请看[Git教程列表](http://www.tcreator.info/tags.php?/GIT/)。
+其他更多Git教程及疑问请看[Git教程列表](http://www.tcreator.info/tags.php?/GIT/)
+
 Git命令汇总图——[思维导图-Git.png](http://pic002.cnblogs.com/img/1-2-3/201007/2010072023345292.png)
 
 # Git与github操作指南
