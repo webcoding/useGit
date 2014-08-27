@@ -11,7 +11,8 @@ useGit
 
 在使用之前建议先大体了解一下git的相关基础：
 
-## 如果学习使用并测试项目，请使用 [Webtest](https://github.com/webframe/webtest) 来测试学习。
+## 如果学习使用并测试项目，请使用示例 [Webtest](https://github.com/webframe/webtest) 来测试学习。
+
 不要用正在线运营的项目
 
 Git详解教程列表：
@@ -30,6 +31,8 @@ Git详解教程列表：
 其他更多Git教程及疑问请看[Git教程列表](http://www.tcreator.info/tags.php?/GIT/)
 
 Git 常用命令图表——[思维导图-Git.png](http://pic002.cnblogs.com/img/1-2-3/201007/2010072023345292.png)
+
+还可以参考一个比较全的教程[Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
 
 # Git与github操作指南
 
