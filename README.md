@@ -36,6 +36,14 @@ Git 常用命令图表——[思维导图-Git.png](http://pic002.cnblogs.com/img
 
 # Git与github操作指南
 
+首先了解一些命令，方便操作使用，下面提供一些命令行中常用的文件/文件夹操作命令：
+
+    创建：mkdir .ssh
+    修改：mv .ssb .ssh
+    删除：rm -rf .ssh
+    创建文件：touch README.md
+    输出文本：cat id_rsa.pub
+
 ## Git命令行模式与github网站关联 
 
 使用ssh加密实现与github网站的关联，避免每次同步都需要填写帐户密码，首次产生一个ssh key：
@@ -55,13 +63,11 @@ Git 常用命令图表——[思维导图-Git.png](http://pic002.cnblogs.com/img
 
 如此即关联完毕，如此在之后与github网站的push、pull操作则不用再输入github帐户密码了，非常方便。
 
-下面提供一些命令行中常用的文件/文件夹操作命令：
+可以使用下面的命令测试下：
 
-    创建：mkdir .ssh
-    修改：mv .ssb .ssh
-    删除：rm -rf .ssh
-    创建文件：touch README.md
-    输出文本：cat id_rsa
+$ssh -T git@github.com
+
+然后会提示你输入密码，输入完成后，会显示在GitHub上的用户名。
 
 ### 首次使用需要的一些配置设置
 
