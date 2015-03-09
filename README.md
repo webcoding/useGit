@@ -62,6 +62,7 @@ Git 常用命令图表——[思维导图-Git.png](http://pic002.cnblogs.com/img
 
 不同的操作系统，均有一些命令，直接将SSH key从文件拷贝到粘贴板中，如下：
 
+```
 mac
 pbcopy < ~/.ssh/id_rsa.pub
 # Copies the contents of the id_rsa.pub file to your clipboard
@@ -76,6 +77,7 @@ sudo apt-get install xclip
 
 xclip -sel clip < ~/.ssh/id_rsa.pub
 # Copies the contents of the id_rsa.pub file to your clipboard
+```
 
 在github网站setting中找到Add SSH Keys，添加复制的内容即可。
 
