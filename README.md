@@ -3,11 +3,11 @@ useGit
 
 这是一个学习Git 用于测试的项目，所需软件
 
-- 命令行 - Git客户端 [http://code.google.com/p/msysgit/downloads/list](http://code.google.com/p/msysgit/downloads/list)
+- 命令行 - Git客户端 [http://www.git-scm.com/download/](http://www.git-scm.com/download/)
 [git-scm.com](http://git-scm.com/downloads)
-- 图形化界面 - TortoiseGit [https://code.google.com/p/tortoisegit/downloads/list](https://code.google.com/p/tortoisegit/wiki/Download)
+- 图形化界面 - TortoiseGit [http://download.tortoisegit.org/tgit/](http://download.tortoisegit.org/tgit/)
 
-另外，关于文档说明文件，如readme.md文件，详情参看 [Markdown 语法说明](http://www.tcreator.info/pandora/docs/modules/markdown.html)。
+另外，关于文档说明文件，如readme.md文件，详情参看 [Markdown 语法说明](http://docs.yanzhanjun.cn/pandora/docs/modules/markdown.html)。
 
 在使用之前建议先大体了解一下git的相关基础：
 
