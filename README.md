@@ -4,7 +4,6 @@ useGit
 这是一个学习Git 用于测试的项目，所需软件
 
 - 命令行 - Git客户端 [http://www.git-scm.com/download/](http://www.git-scm.com/download/)
-[git-scm.com](http://git-scm.com/downloads)
 - 图形化界面 - TortoiseGit [http://download.tortoisegit.org/tgit/](http://download.tortoisegit.org/tgit/)
 
 另外，关于文档说明文件，如readme.md文件，详情参看 [Markdown 语法说明](http://docs.yanzhanjun.cn/pandora/docs/modules/markdown.html)。
