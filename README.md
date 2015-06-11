@@ -3,15 +3,15 @@ useGit
 
 这是一个学习Git 用于测试的项目，所需软件
 
-- 命令行 - Git客户端 [http://code.google.com/p/msysgit/downloads/list](http://code.google.com/p/msysgit/downloads/list)
-[git-scm.com](http://git-scm.com/downloads)
-- 图形化界面 - TortoiseGit [https://code.google.com/p/tortoisegit/downloads/list](https://code.google.com/p/tortoisegit/wiki/Download)
+- 命令行 - Git客户端 [http://www.git-scm.com/download/](http://www.git-scm.com/download/)
+- 图形化界面 - TortoiseGit [http://download.tortoisegit.org/tgit/](http://download.tortoisegit.org/tgit/)
 
-另外，关于文档说明文件，如readme.md文件，详情参看 [Markdown 语法说明](http://10.3.1.41/cnbootstrap/wf/xOne/markdown.html)--内网访问。
+另外，关于文档说明文件，如readme.md文件，详情参看 [Markdown 语法说明](http://docs.yanzhanjun.cn/pandora/docs/modules/markdown.html)。
 
 在使用之前建议先大体了解一下git的相关基础：
 
-## 如果学习使用并测试项目，请使用 [Webtest](https://github.com/webframe/webtest) 来测试学习。
+## 如果学习使用并测试项目，请使用示例 [Webtest](https://github.com/webframe/webtest) 来测试学习。
+
 不要用正在线运营的项目
 
 Git详解教程列表：
@@ -27,9 +27,21 @@ Git详解教程列表：
 * [Git详解之九 Git内部原理](http://www.tcreator.info/webSchool/tools/git-9-internal-principle.html)
 
 
-其他更多Git教程及疑问请看[Git教程列表](http://www.tcreator.info/tags.php?/GIT/)。
+其他更多Git教程及疑问请看[Git教程列表](http://www.tcreator.info/tags.php?/GIT/)
+
+Git 常用命令图表——[思维导图-Git.png](http://pic002.cnblogs.com/img/1-2-3/201007/2010072023345292.png)
+
+还可以参考一个比较全的教程[Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
 
 # Git与github操作指南
+
+首先了解一些命令，方便操作使用，下面提供一些命令行中常用的文件/文件夹操作命令：
+
+    创建：mkdir .ssh
+    修改：mv .ssb .ssh
+    删除：rm -rf .ssh
+    创建文件：touch README.md
+    输出文本：cat id_rsa.pub
 
 ## Git命令行模式与github网站关联 
 
@@ -46,17 +58,35 @@ Git详解教程列表：
     #
 
 设置关联（复制上面产生的key——id_rsa.pub中代码——全选即可）
+
+不同的操作系统，均有一些命令，直接将SSH key从文件拷贝到粘贴板中，如下：
+
+```
+mac
+pbcopy < ~/.ssh/id_rsa.pub
+# Copies the contents of the id_rsa.pub file to your clipboard
+
+windows
+clip < ~/.ssh/id_rsa.pub
+# Copies the contents of the id_rsa.pub file to your clipboard
+
+linux
+sudo apt-get install xclip
+# Downloads and installs xclip. If you don't have `apt-get`, you might need to use another installer (like `yum`)
+
+xclip -sel clip < ~/.ssh/id_rsa.pub
+# Copies the contents of the id_rsa.pub file to your clipboard
+```
+
 在github网站setting中找到Add SSH Keys，添加复制的内容即可。
 
 如此即关联完毕，如此在之后与github网站的push、pull操作则不用再输入github帐户密码了，非常方便。
 
-下面提供一些命令行中常用的文件/文件夹操作命令：
+可以使用下面的命令测试下：
 
-    创建：mkdir .ssh
-    修改：mv .ssb .ssh
-    删除：rm -rf .ssh
-    创建文件：touch README.md
-    输出文本：cat id_rsa
+$ssh -T git@github.com
+
+然后会提示你输入密码，输入完成后，会显示在GitHub上的用户名。
 
 ### 首次使用需要的一些配置设置
 
@@ -214,8 +244,8 @@ C:\Users\Jack\.ssh\pandora.ppk 如此，之后在该项目的右键settings-remo
     $ git fetch origin
     
     // 如果你的命令无效，我在win8中使用1.8.3就上述命令执行无效，
-    // 可以使用 git checkout -b 本地分支名 远程分支名，如：
-    // git checkout -b v4 origin/v4  //v3项目中的分支v4
+    // 可以使用 git checkout -t 本地分支名 远程分支名，如：
+    // git checkout -t v4 origin/v4  //v3项目中的分支v4，分支名同则可省略，如：git checkout -t origin/gh-pages
     // 使用 git branch -r可以查看远程分支
 
     cloudyan@IT0101 /E/git/webtest (master)
