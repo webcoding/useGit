@@ -10,7 +10,7 @@ useGit
 
 在使用之前建议先大体了解一下git的相关基础：
 
-## 如果学习使用并测试项目，请使用示例 [Webtest](https://github.com/webframe/webtest) 来测试学习。
+## 如果学习使用并测试项目，请使用示例 [Webtest](https://github.com/webcoding/webtest) 来测试学习。
 
 不要用正在线运营的项目
 
