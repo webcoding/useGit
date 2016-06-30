@@ -16,6 +16,9 @@ useGit
 
 Git详解教程列表：
 ---------------
+
+下面列表链接已失效，请移步 [Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
+
 * [Git详解之一 Git起步](http://www.tcreator.info/webSchool/tools/git-1-getstart.html)
 * [Git详解之二 Git基础](http://www.tcreator.info/webSchool/tools/git-2-base.html)
 * [Git详解之三 Git分支](http://www.tcreator.info/webSchool/tools/git-3-branch.html)
